@@ -1,0 +1,12 @@
+{
+    "name": "library-service",
+    "version": "0.0.1",
+    "private": true,
+    "description": "Library service for SEMAT",
+    "author": "Saul Zukauskas",
+    "dependencies": {
+        "express": "~3.4",
+        "request":"~2.12.0"
+    },
+    "main": "./app.js"
+}
