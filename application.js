@@ -25,7 +25,8 @@ app.use(mbaasExpress.fhmiddleware());
 //app.use(express.static(__dirname + '/public'));
 
 // fhlint-begin: custom-routes
-app.use('/', require('./lib/cloud.js')());
+app.use('/activities', require('./apis/activities.js')());
+app.use('/libraries', require('./apis/libraries.js')());
 // fhlint-end
 
 // Important that this is last!

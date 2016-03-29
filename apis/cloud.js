@@ -1,5 +1,4 @@
-//customize app cloud logic, all the public functions defined here will be accessible using the url:
-//http://<host>/cloud/<function name>
+//
 
 var fh = require('fh-mbaas-api');
 var getWeather = require('./weather').getWeather;

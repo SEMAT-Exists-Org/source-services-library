@@ -7,7 +7,7 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     watch: {
       js: {
-        files: ['gruntfile.js', 'application.js', 'lib/**/*.js', 'test/**/*.js'],
+        files: ['gruntfile.js', 'application.js', 'apis/**/*.js', 'test/**/*.js'],
         options: {
           livereload: true
         }
@@ -114,7 +114,7 @@ module.exports = function(grunt) {
           jshint : grunt.file.readJSON('.jshintrc')
         },
         files: {
-          'plato': ['lib/**/*.js']
+          'plato': ['apis/**/*.js']
         }
       }
     }
