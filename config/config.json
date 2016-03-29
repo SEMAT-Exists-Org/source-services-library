@@ -1,6 +1,0 @@
-{
-    "db" : {
-        "dburl":"mongodb://localhost",
-        "dbname":"myappdatabase"
-    }
-}

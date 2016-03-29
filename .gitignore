@@ -1,5 +1,9 @@
 # mac
 .DS_Store
+.DS_Store?
+._*
+*~
+.grunt
 
 # nodejs
 node_modules
