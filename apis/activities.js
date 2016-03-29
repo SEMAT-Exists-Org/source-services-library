@@ -121,7 +121,11 @@ function activityRoutes() {
           var fullResponse = JSON.parse(body);
 
           responseJSON.sha = fullResponse.sha;
-          responseJSON.content = fullResponse.content;
+
+          var base64Decoded = new Buffer(fullResponse.content, 'base64').toString('ascii');
+          //responseJSON.content = fullResponse.content;
+          responseJSON.content = base64Decoded;
+          
 
           // response
           res.json(responseJSON);
@@ -140,8 +144,6 @@ function activityRoutes() {
 
   });
 
-
-  
 
   // create new activity
   activityRouter.post('/', function(req, res) {
