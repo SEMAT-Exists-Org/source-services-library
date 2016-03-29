@@ -16,4 +16,4 @@ After npm finishes installing all dependencies, you can start the service with
 	
 By default application will be listening on port 3000
 
-by [@sauliuz](https://github.com/sauliuz) 
+by [@sauliuz](https://github.com/sauliuz)
