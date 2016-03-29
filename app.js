@@ -14,7 +14,8 @@ var express = require('express');
 
 // config
 var config = {
-    port: process.env.PORT || 3000
+    port: process.env.FH_PORT|| 8001,
+    host: process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 };
 
 // main entry point
