@@ -8,19 +8,108 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var cors = require('cors');
 
+
+// API resources
+
 function libraryRoutes() {
   var libraryRouter = new express.Router();
   libraryRouter.use(cors());
   libraryRouter.use(bodyParser());
 
+
   
   // get all libraries. default limit by 25? 
   libraryRouter.get('/', function(req, res) {
+
+
+
+    // github.user.getAll({
+    //   // optional:
+    //   // headers: {
+    //   //     "cookie": "blahblah"
+    //   // },
+    //   user: "SEMAT-Exists"
+    // }, function(err, res) {
+    
+    //   console.log(JSON.stringify(res));
+    
+    //   // api response
+    //   res.json({
+    //     libraries: 'libraries get all libraries'
+    //   }); 
+
+
+    // });
+
+    
+    
+    // github.repos.getFromUser({
+    //   // mandatory:
+    //   // user: "SEMAT-Exists",
+    //   // repo: "content-techniques"
+    //   user: "SEMAT-Exists"
+    
+    // }, function(err, res) {
       
-    // response
-    res.json({
-      libraries: 'libraries get all libraries'
-    });
+    //   if (err) {
+    //     console.log(JSON.stringify(res));
+      
+    //     // api response
+    //     res.json({
+    //       libraries: 'libraries get all libraries'
+    //     }); 
+
+    //   }
+
+    //   if (res) {
+    //     console.log(JSON.stringify(res));
+
+    //     // api response
+    //     res.json({
+    //       libraries: 'libraries get all libraries'
+    //     }); 
+    //   }
+
+
+    // });
+
+
+    // github.repos.getFromOrg({
+    //   // mandatory:
+    //   org: "SEMAT-Exists-Org"
+    //   //repo: "content-techniques"
+
+    // }, function(error, response) {
+      
+    //   // console
+    //   console.log(JSON.stringify(error));
+    //   console.log(JSON.stringify(response));
+
+    //   // api response
+    //   res.json({
+    //     libraries: 'libraries get all libraries'
+    //   });
+
+    // });
+
+    // github.repos.getFromOrg({
+    //   // mandatory:
+    //   org: "SEMAT-Exists-Org"
+    //   //repo: "content-techniques"
+
+    // }, function(error, response) {
+      
+    //   // console
+    //   console.log(JSON.stringify(error));
+    //   console.log(JSON.stringify(response));
+
+    //   // api response
+    //   res.json({
+    //     libraries: 'libraries get all libraries'
+    //   });
+    
+    // });
+
   });
 
 
