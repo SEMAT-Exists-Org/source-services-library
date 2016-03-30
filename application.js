@@ -21,9 +21,6 @@ app.use('/mbaas', mbaasExpress.mbaas);
 // Note: important that this is added just before your own Routes
 app.use(mbaasExpress.fhmiddleware());
 
-// allow serving of static files from the public directory
-//app.use(express.static(__dirname + '/public'));
-
 // fhlint-begin: custom-routes
 app.use('/activities', require('./apis/activities.js')());
 app.use('/libraries', require('./apis/libraries.js')());
