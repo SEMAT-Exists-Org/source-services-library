@@ -12,32 +12,25 @@ var request = require('request');
 
 
 
-function activityRoutes() {
-  var activityRouter = new express.Router();
-  activityRouter.use(cors());
-  activityRouter.use(bodyParser());
+function techniqueRoutes() {
+  var techniqueRouter = new express.Router();
+  techniqueRouter.use(cors());
+  techniqueRouter.use(bodyParser());
 
   
-  // get all activities. default limit by 25? 
-  activityRouter.get('/', function(req, res) {
+  // get all techniques
+  techniqueRouter.get('/', function(req, res) {
 
-    // approach to list all activities
-    // 1. get the list of all the files in the repositary
-    // https://api.github.com/repos/SEMAT-Exists-Org/content-activities/contents/
-    // 2. From JSON, remove the README and License file groups. Send back the remaining files list
-    // 3. No default limit, add query param if needed.
-
-
+    // http request options
     var requestOptions = {
-      url: 'https://api.github.com/repos/SEMAT-Exists-Org/content-activities/contents/',
+      url: 'https://api.github.com/repos/SEMAT-Exists-Org/content-techniques/contents/',
       headers: {
         'User-Agent': 'SEMAT-Exists'
       }
     };
 
-
-    // activities are stored in GitHub as markdown files
-    // we query the 'content-activities' repository in order to
+    // techniques are stored in GitHub as markdown files
+    // we query the 'content-techniques' repository in order to
 
     request(requestOptions, function (error, response, body) {
 
@@ -59,7 +52,7 @@ function activityRoutes() {
 
           fullResponse.forEach(function(file){
               
-              if (file.name != 'LICENSE' && file.name != 'README.md'){
+              if (file.name != 'LICENSE' && file.name != 'README.md' && file.name != 'technique-template.md'){
                 var fileData = {};
                 fileData.name = file.name;
                 fileData.gitid = file.sha;
@@ -87,17 +80,15 @@ function activityRoutes() {
   });
 
 
-  // send back specific activity by sha hash
-  activityRouter.get('/:sha', function(req, res) {
+  // send back specific technique by sha hash
+  techniqueRouter.get('/:sha', function(req, res) {
       
-    // approach to list activity by sha
+    // approach to list technique by sha
     // 1. get the details of activity by sha number
-    // 2. convert base64 to markdown and markdown to html
-    // 3. send html content back to mobile client
-
+    // 2. send back content in base64 encoded format
 
     var requestOptions = {
-      url: 'https://api.github.com/repos/SEMAT-Exists-Org/content-activities/git/blobs/' +req.params.sha,
+      url: 'https://api.github.com/repos/SEMAT-Exists-Org/content-techniques/git/blobs/' +req.params.sha,
       headers: {
         'User-Agent': 'SEMAT-Exists'
       }
@@ -146,11 +137,11 @@ function activityRoutes() {
 
 
   // create new activity
-  activityRouter.post('/', function(req, res) {
+  techniqueRouter.post('/', function(req, res) {
     
     // response
     res.json({
-      activities: 'activities post to create new activity',
+      techniques: 'techniques post to create new technique',
       message: 'this resource is currentlly not implemented'
     });
   });  
@@ -158,8 +149,8 @@ function activityRoutes() {
   // end of activities resources
   // any new resources shuld go here
 
-  return activityRouter;
+  return techniqueRouter;
 };
 
 
-module.exports = activityRoutes;
+module.exports = techniqueRoutes;
